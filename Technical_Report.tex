@@ -1,0 +1,77 @@
+\documentclass[12pt, letterpaper]{report}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}               % code block
+\usepackage{color}                  % code block
+\usepackage{titling}                % keep \maketitle from clearing title
+
+% biblatex
+\usepackage[backend=bibtex,natbib=true,style=numeric]{biblatex}
+\addbibresource{bibliography.bib}
+
+% code block --------------------------------------------------------
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tblr,
+    language=Python,
+    aboveskip=5mm,
+    belowskip=-2mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true
+    tabsize=3
+}
+% code block --------------------------------------------------------
+
+\renewcommand{\baselinestretch}{1}
+%\usepackage[margins=1in]{geometry}
+\author{D. Piso}
+\title{Homomorphic encryption}
+
+\includeonly{
+    letter-of-transmittal,
+    abstract,
+    body,
+}
+
+\begin{document}
+
+% title page ************************************
+\maketitle
+\newpage
+% roman numbering *******************************
+\setcounter{page}{1}
+\pagenumbering{roman}
+%forward ****************************************
+\include{letter-of-transmittal}
+\newpage
+\include{abstract}
+\newpage
+%toc ********************************************
+\tableofcontents
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\newpage
+%arabic numbering *******************************
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%report *****************************************
+\include{body}
+\section*{Introduction}
+Homomorphic encryption is a form of encryption that allows computations to be carried out on ciphertext, thus generating an encrypted result which, when decrypted, matches the result of operations performed on the plaintext.
+This is sometimes a desirable feature in modern communication system architectures. Homomorphic encryption would allow the chaining together of different services without exposing the data to each of those services. Homomorphic encryption schemes are malleable by design. This enables their use in cloud computing environment for ensuring the confidentiality of processed data. In addition the homomorphic property of various cryptosystems can be used to create many other secure systems, for example secure voting systems,[2] collision-resistant hash functions, private information retrieval schemes, and many more.
+\nocite{*}
+\printbibliography
+\addcontentsline{toc}{chapter}{\numberline\bibname}
+
+\end{document}
